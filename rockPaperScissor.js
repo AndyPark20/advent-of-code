@@ -12,3 +12,13 @@
     //There is a guide that the elves have given that shows the prediction of each players options
     //What is the total point for me based on the strategy guide. 
  
+
+
+  const response = async ()=>{
+    const data = await fetch('https://adventofcode.com/2022/day/2/input', {mode: 'no-cors'});
+    const finalData = await data.json();
+    console.log(finalData);
+  }
+
+
+  response();
