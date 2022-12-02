@@ -14,11 +14,22 @@
  
 
 
-  const response = async ()=>{
-    const data = await fetch('https://adventofcode.com/2022/day/2/input', {mode: 'no-cors'});
-    const finalData = await data.json();
-    console.log(finalData);
-  }
+const data = require('./stratGuide/data');
+let finalProductionData ={opponent:[],me:[]};
+
+//function to convert json data into formatted object  for easier accessability
+const formatData =(unformattedData)=>{
+  splitCharactersArray = [];
+  splitCharactersArray =unformattedData.stratGuide.split(",");
+  
+  //Loop thru the splitCharacterArray and if the value index is even = opponent, if odd = me
+  splitCharactersArray.forEach((values,index)=>{
+    index % 2 !== 1 ? finalProductionData.opponent.push(values) : finalProductionData.me.push(values)
+  })
+}
 
 
-  response();
+formatData(data)
+
+console.log('oppponent', finalProductionData.opponent.length);
+console.log('me',finalProductionData.me.length)
