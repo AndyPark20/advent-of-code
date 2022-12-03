@@ -14,8 +14,9 @@
 
 
 
+const { match } = require('assert');
 const data = require('./stratGuide/data');
-let finalProductionData = { opponent: { action: [], score: 0, matchResult: "" }, me: { action: [], score: 0, matchResult: "" } };
+let finalProductionData = { opponent: { action: [], score: 0, roundMatchResult: "" }, me: { action: [], score: 0, roundMatchResult: "" } };
 
 
 
@@ -47,15 +48,15 @@ const actionComparison = (recordedActionData) => {
     const myAction = recordedActionData.me.action[index];
     recordedActionData.me.score += actionPoints[myAction];
 
-    if(actionPoints[opponentAction] === actionPoints[myAction]){
-      finalProductionData.opponent.matchResult = "tie";
-      finalProductionData.opponent.matchResult = "tie";
-    }else if (actionPoints[opponentAction] > actionPoints[myAction]){
-      finalProductionData.opponent.matchResult = "win";
-      finalProductionData.opponent.matchResult = "loss";
-    }else{
-      finalProductionData.opponent.matchResult = "loss";
-      finalProductionData.opponent.matchResult = "win";
+    if (actionPoints[opponentAction] === actionPoints[myAction]) {
+      finalProductionData.opponent.roundMatchResult = "tie";
+      finalProductionData.me.roundMatchResult = "tie";
+    } else if (actionPoints[opponentAction] > actionPoints[myAction]) {
+      finalProductionData.opponent.roundMatchResult = "win";
+      finalProductionData.me.roundMatchResult = "loss";
+    } else {
+      finalProductionData.opponent.roundMatchResult = "loss";
+      finalProductionData.me.roundMatchResult = "win";
     }
 
     //Calculate match points
@@ -64,15 +65,17 @@ const actionComparison = (recordedActionData) => {
 };
 
 //Function to calculate match points
-const calculateMatchPoints = (matchRound) =>{
+const calculateMatchPoints = (matchRound) => {
 
   //Object storing data about how much win loss and tie are worth in points
-  const matchResult = {"win":6, "loss":3, "tie":0};
+  const roundMatchResult = { "win": 6, "loss": 3, "tie": 0 };
 
-  const opponentActionPoint = finalProductionData.opponent.action[matchRound];
-  const myActionPoint = finalProductionData.me.action[matchRound];
+  const opponentroundMatchResult = finalProductionData.opponent.roundMatchResult;
+  const myroundMatchResult = finalProductionData.me.roundMatchResult;
 
-
+  //Find the value of the match result points from roundMatchResult object and add it to both opponent and my score
+  finalProductionData.opponent.score += roundMatchResult[opponentroundMatchResult];
+  finalProductionData.me.score += roundMatchResult[myroundMatchResult];
 }
 
 
