@@ -15,7 +15,7 @@
 
 
 const data = require('./stratGuide/data');
-let finalProductionData = { opponent: { action: [], score: 0 }, me: { action: [], score: 0 } };
+let finalProductionData = { opponent: { action: [], score: 0, matchResult: "" }, me: { action: [], score: 0, matchResult: "" } };
 
 
 
@@ -47,8 +47,19 @@ const actionComparison = (recordedActionData) => {
     const myAction = recordedActionData.me.action[index];
     recordedActionData.me.score += actionPoints[myAction];
 
+    if(actionPoints[opponentAction] === actionPoints[myAction]){
+      finalProductionData.opponent.matchResult = "tie";
+      finalProductionData.opponent.matchResult = "tie";
+    }else if (actionPoints[opponentAction] > actionPoints[myAction]){
+      finalProductionData.opponent.matchResult = "win";
+      finalProductionData.opponent.matchResult = "loss";
+    }else{
+      finalProductionData.opponent.matchResult = "loss";
+      finalProductionData.opponent.matchResult = "win";
+    }
+
     //Calculate match points
-    calculateMatchPoints(index)
+    calculateMatchPoints(index, actionPoints[opponentAction], actionPoints[myAction]);
   });
 };
 
@@ -60,6 +71,7 @@ const calculateMatchPoints = (matchRound) =>{
 
   const opponentActionPoint = finalProductionData.opponent.action[matchRound];
   const myActionPoint = finalProductionData.me.action[matchRound];
+
 
 }
 
