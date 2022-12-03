@@ -3,3 +3,4 @@ const stratGuide = "A,X,A,Z,A,Z,A,X,A,X,B,X,C,Y,B,X,A,Z,A,X,A,X,A,X,A,X,B,X,A,X,
 
 
 module.exports = { stratGuide };
+
