@@ -1,7 +1,7 @@
 const first = require("ee-first");
 
-// const data = require('./stratGuide/backPackData');
-const data =['rPWmLCTCQlCQQmmrWLrQShJshhzdhhJjcSjlzRds'];
+const data = require('./stratGuide/backPackData');
+// const data =['rPWmLCTCQlCQQmmrWLrQShJshhzdhhJjcSjlzRds', 'andys'];
 //Psudo code
 //Loop thru the master array and split the characters by half.
 //assign the characters into small pocket and big pocket
@@ -9,19 +9,20 @@ const data =['rPWmLCTCQlCQQmmrWLrQShJshhzdhhJjcSjlzRds'];
 let totalCount =0;
 
 const checkBackPack =()=>{
-  const firstPocket =[];
-  const secondPoket =[];
+
   data.forEach(backPack => {
-    backPack.forEach((characters,index)=>{
-      if((index+1/2) <= characters.length){
-        firstPocket.push(characters[index]);
+    let characterArray= backPack.split('');
+    let firstPocket =[];
+    let secondPocket =[];
+    characterArray.forEach((characters,index)=>{
+      if(index < characterArray.length/2){
+       firstPocket.push(characters);
       }else{
-        secondPoket.push(characters[index]);
+        secondPocket.push(characters);
       };
     });
+    // console.log('firstPocket:', firstPocket, "secondPocket:", secondPocket)
   });
-  console.log('firstPocket', firstPocket);
-  console.log('secondPocket', secondPoket);
 };
 
 const checkAlphabet =()=>{
