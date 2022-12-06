@@ -1,10 +1,7 @@
 const first = require("ee-first");
 
-const data = require('./stratGuide/backPackData');
-// const data =['rPWmLCTCQlCQQmmrWLrQShJshhzdhhJjcSjlzRds', 'andys'];
-//Psudo code
-//Loop thru the master array and split the characters by half.
-//assign the characters into small pocket and big pocket
+// const data = require('./stratGuide/backPackData');
+const data = ['rPWmLCTCQlCQQmmrWLrQShJshhzdhhJjcSjlzRds'];
 
 let totalCount =0;
 
@@ -21,14 +18,21 @@ const checkBackPack =()=>{
         secondPocket.push(characters);
       };
     });
-    // console.log('firstPocket:', firstPocket, "secondPocket:", secondPocket)
+    console.log('firstPocket', firstPocket);
+    console.log('secondPocket', secondPocket);
+    checkAlphabet(firstPocket, secondPocket);
   });
 };
 
-const checkAlphabet =()=>{
+const checkAlphabet =(firstPocket, secondPocket)=>{
   const upperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-  const lowercase = upperCase.map(values=>{return values.toLowerCase()});
-}
+  const lowerCase = upperCase.map(values=>{return values.toLowerCase()});
+  firstPocket.forEach((firstPocketChar, firstPocketCharIndex)=>{
+    if(secondPocket.indexOf(firstPocketChar) !== -1){
+      console.log(firstPocket[secondPocket.indexOf(firstPocketChar)]);
+    }
+  });
+};
 
 checkBackPack();
 
