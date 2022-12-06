@@ -23,7 +23,17 @@ def checkBackPack
 end
 
 def check_alphabet(first_pocket, second_pocket) 
-  print "first #{first_pocket} second #{second_pocket}"
+  upper_case = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+  lower_case = upper_case.map {|values| values.downcase}
+
+  found_char = []
+  first_pocket.each do |first_pocket_char|
+    if second_pocket.find_index(first_pocket_char) != -1 && found_char.find_index(first_pocket_char) != -1
+      found_character = second_pocket[second_pocket.find_index(first_pocket_char)]
+      puts found_character
+    end
+  end
+
 end
 
 checkBackPack()
