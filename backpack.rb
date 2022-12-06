@@ -29,8 +29,9 @@ def check_alphabet(first_pocket, second_pocket)
   found_char = []
   first_pocket.each do |first_pocket_char|
     if second_pocket.find_index(first_pocket_char) != -1 && found_char.find_index(first_pocket_char) != -1
-      found_character = second_pocket[second_pocket.find_index(first_pocket_char)].to_i
-    
+      found_character = second_pocket[second_pocket.find_index(first_pocket_char).to_i]
+      found_char.push(found_character)
+      if upper_case.find_index(found_character) != -1 && found_char.find_index(first_pocket_char) != -1
     end
   end
 
