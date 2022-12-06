@@ -24,20 +24,20 @@ const checkBackPack =()=>{
 const checkAlphabet =(firstPocket, secondPocket)=>{
   const upperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
   const lowerCase = upperCase.map(values=>{return values.toLowerCase()});
-  let found = '';
+  let foundChar =[];
+
   firstPocket.forEach((firstPocketChar,indexPosition)=>{
-    if(secondPocket.indexOf(firstPocketChar) !== -1){
+    if(secondPocket.indexOf(firstPocketChar) !== -1 && foundChar.indexOf(firstPocketChar) === -1){
       const foundCharacter = secondPocket[secondPocket.indexOf(firstPocketChar)];
-      console.log('foundCharacter', foundCharacter)
-      if(upperCase.indexOf(foundCharacter) !==0 && lowerCase.indexOf(foundCharacter) === -1){
-        console.log('uppercase', foundCharacter);
+      foundChar.push(foundCharacter);
+      if(upperCase.indexOf(foundCharacter) !== -1 && lowerCase.indexOf(foundCharacter) === -1){
         totalCount += (upperCase.length + upperCase.indexOf(foundCharacter)+1);
       }else{
         totalCount += (lowerCase.indexOf(foundCharacter)+1);
       }
     }
   });
-  console.log(totalCount);
+  return totalCount;
 };
 
 checkBackPack();
