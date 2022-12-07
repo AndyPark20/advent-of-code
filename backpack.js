@@ -31,6 +31,7 @@ const checkAlphabet =(firstPocket, secondPocket)=>{
     if(secondPocket.indexOf(firstPocketChar) !== -1 && foundChar.indexOf(firstPocketChar) === -1){
       const foundCharacter = secondPocket[secondPocket.indexOf(firstPocketChar)];
       foundChar.push(foundCharacter);
+      console.log(foundChar)
       if(upperCase.indexOf(foundCharacter) !== -1 && lowerCase.indexOf(foundCharacter) === -1){
         totalCount += (upperCase.length + upperCase.indexOf(foundCharacter)+1);
       }else{

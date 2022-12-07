@@ -25,15 +25,15 @@ end
 def check_alphabet(first_pocket, second_pocket) 
   upper_case = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
   lower_case = upper_case.map {|values| values.downcase}
-
   found_char = []
+
   first_pocket.each do |first_pocket_char|
-    if second_pocket.find_index(first_pocket_char) != -1 && found_char.find_index(first_pocket_char) != -1
+    if second_pocket.find_index(first_pocket_char) != nil && found_char.find_index(first_pocket_char) == nil
       found_character = second_pocket[second_pocket.find_index(first_pocket_char).to_i]
       found_char.push(found_character)
 
-      if upper_case.find_index(found_character) != -1 && found_char.find_index(first_pocket_char) == -1
-        $total_count += (upper_case.length + (upper_case.find_index(found_character).to_i)+1)
+      if upper_case.find_index(found_character) != nil && found_char.find_index(first_pocket_char) == nil
+        $total_count += (upper_case.length.to_i + (upper_case.find_index(found_character).to_i)+1)
       else    
         $total_count += ((lower_case.find_index(found_character).to_i)+1)
       end
