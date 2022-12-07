@@ -1,6 +1,7 @@
-const first = require("ee-first");
 
-const data = require('./stratGuide/backPackData');
+
+// const data = require('./stratGuide/backPackData');
+const data =['NWVqqcHHNpsNcNVdVlhCMlHQQMQQzLfzQPttFGPMLSLgtF']
 
 let totalCount =0;
 
@@ -37,7 +38,7 @@ const checkAlphabet =(firstPocket, secondPocket)=>{
       }
     }
   });
-  return totalCount;
+  console.log(totalCount);
 };
 
 checkBackPack();

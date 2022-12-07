@@ -31,10 +31,11 @@ def check_alphabet(first_pocket, second_pocket)
     if second_pocket.find_index(first_pocket_char) != -1 && found_char.find_index(first_pocket_char) != -1
       found_character = second_pocket[second_pocket.find_index(first_pocket_char).to_i]
       found_char.push(found_character)
+
       if upper_case.find_index(found_character) != -1 && found_char.find_index(first_pocket_char) == -1
-        total_count + (upper_case.length + upper_case.find_index(found_character)+1)
-      else
-        total_count + (lower_case.find_index(found_character)+1)
+        $total_count += (upper_case.length + (upper_case.find_index(found_character).to_i)+1)
+      else    
+        $total_count += ((lower_case.find_index(found_character).to_i)+1)
       end
     end
   end
