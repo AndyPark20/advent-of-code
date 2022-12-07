@@ -30,3 +30,32 @@ def format_data()
 end
 
 format_data()
+
+#Function to calculate the action taken from competitors (rock, paper, and scissor values)
+def action_comparison()
+  #Object storing data about how much each action is worth 
+  # A and X == rock
+  # B and Y == paper
+  # C and Z == scissor
+  action_points = {A: 1, B: 2, C: 3, X: 1, Y: 2, Z: 3}
+
+  #Loop thru opponent action and compare it to action points library
+  $final_production_data[:opponent][:action].each_with_index do |opponent_action, index|
+    $final_production_data[:opponent][:score] += action_points[opponent_action.to_sym].to_i
+   
+    # Since the number of matches are the same, we can pass the index position from opponent directly into myAction
+    my_action = $final_production_data[:me][:action][index];
+    $final_production_data[:me][:score] += action_points[my_action.to_sym]
+
+    # Calculate match points
+    calculate_match_points(opponent_action, my_action)
+  end
+end
+
+# Function to calculate match points
+def calculate_match_points(opponent_action, my_action) 
+  #Logic to determine win, loss, or tie
+  
+end
+
+action_comparison()
