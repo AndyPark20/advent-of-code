@@ -2499,5 +2499,9 @@ A X
 C Z
 A Z`
 
+const splitBySpace = data.split("\n")
 
-console.log(data)
+
+
+
+console.log(splitBySpace)
