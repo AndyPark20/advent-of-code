@@ -2510,11 +2510,15 @@ const formatData =()=>{
 
   let joinedStringCharacters = '';
   spaceRemovedCharacters.split("").forEach((characters, index)=>{
-    if(index !== spaceRemovedCharacters.split("").length){
+    if(index === spaceRemovedCharacters.split("").length-1){
+      joinedStringCharacters += characters;
+    }else{
       joinedStringCharacters += (characters + ',');
-    }
+    }   
   })
+  console.log(joinedStringCharacters)
   return joinedStringCharacters;
+  
 };
 
 // const splitByBlankSpace = data.split("\n");

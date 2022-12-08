@@ -15,16 +15,16 @@
 
 
 const { match } = require('assert');
-const data = require('./stratGuide/data');
+const data = require('./stratGuide/rockPaperScissorData');
 let finalProductionData = { opponent: { action: [], score: 0, roundMatchResult: "" }, me: { action: [], score: 0, roundMatchResult: "" } };
 
 
 
-//function to convert json data into formatted object  for easier accessability
-const formatData = (unformattedData) => {
+//function to convert json data into formatted object for easier accessability
+const formatData = () => {
   splitCharactersArray = [];
-  splitCharactersArray = unformattedData.stratGuide.split(",");
-
+  splitCharactersArray = data.split(",");
+  console.log('splitCharactersArray', splitCharactersArray);
   //Loop thru the splitCharacterArray and if the value index is even = opponent, if odd = me
   splitCharactersArray.forEach((values, index) => {
     index % 2 == 0 ? finalProductionData.opponent.action.push(values) : finalProductionData.me.action.push(values)
@@ -32,7 +32,7 @@ const formatData = (unformattedData) => {
 };
 
 
-formatData(data);
+formatData();
 
 //Function to calculate the action taken from competitors (rock, paper, and scissor values)
 const actionComparison = (recordedActionData) => {
