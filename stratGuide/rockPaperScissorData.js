@@ -2499,9 +2499,16 @@ A X
 C Z
 A Z`
 
-const splitBySpace = data.split("\n")
+const splitByBlankSpace = data.split("\n");
+let newWord =''
+for (let i =0 ;i<splitByBlankSpace.length; i++){
+  newWord += splitByBlankSpace[i].replace(" ", "");
+
+
+  
+}
 
 
 
 
-console.log(splitBySpace)
+console.log(newWord)
