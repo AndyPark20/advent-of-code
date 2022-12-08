@@ -2499,16 +2499,35 @@ A X
 C Z
 A Z`
 
-const splitByBlankSpace = data.split("\n");
-let newWord =''
-for (let i =0 ;i<splitByBlankSpace.length; i++){
-  newWord += splitByBlankSpace[i].replace(" ", "");
 
+const formatData =()=>{
+  const newLineRemovedCharacters = data.split("\n");
+  let spaceRemovedCharacters ='';
 
+  newLineRemovedCharacters.forEach(characters =>{
+    spaceRemovedCharacters += characters.replace(" ", "");
+  });
+
+  let joinedStringCharacters = '';
+  spaceRemovedCharacters.split("").forEach((characters, index)=>{
+    if(index !== spaceRemovedCharacters.split("").length){
+      joinedStringCharacters += (characters + ',');
+    }
+  })
+  return joinedStringCharacters;
+};
+
+// const splitByBlankSpace = data.split("\n");
+// let newWord =''
+// for (let i =0 ;i<splitByBlankSpace.length; i++){
+//   newWord += splitByBlankSpace[i].replace(" ", "");  
+// }
+// let finalWord =""
+// newWord.split("").forEach((values,index)=>{
   
-}
+//   finalWord += (values + ',')
+
+// })
 
 
-
-
-console.log(newWord)
+module.exports = formatData();
