@@ -15,7 +15,7 @@
 
 
 const { match } = require('assert');
-const data = require('./stratGuide/rockPaperScissorData');
+const data = require('./stratGuide/rock_paper_scissor/rockPaperScissorData');
 let finalProductionData = { opponent: { action: [], score: 0, roundMatchResult: "" }, me: { action: [], score: 0, roundMatchResult: "" } };
 
 
