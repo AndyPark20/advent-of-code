@@ -2244,5 +2244,11 @@ const masterCalorieData = `3427
 
 
 const removeNewLine = masterCalorieData.split("\n")
+let formmatedData =[];
+removeNewLine.map((calories,index) =>{
+  if(index+1 !== ""){
+    formmatedData.push([calories])
+  }
+})
 
-console.log(masterCalorieData.split("\n"))
+console.log(formmatedData)
