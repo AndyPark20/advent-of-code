@@ -2500,15 +2500,19 @@ $strat_data = "A X
   A Z"
 
 
+  module Formatted_data
+    def format_data 
+      new_line_removed_characters = $strat_data.split(" ")
+      space_removed_character = ""
 
-
-  def format_data 
-    new_line_removed_characters = $strat_data.split(" ")
-    space_removed_character = ""
-
-    new_line_removed_characters.each do |characters|
-      space_removed_character += "#{characters},"
+      new_line_removed_characters.each_with_index do |characters, index|
+        if index == new_line_removed_characters.length-1
+          space_removed_character += characters
+        else
+          space_removed_character += "#{characters},"
+        end
+      end
+      return space_removed_character
     end
   end
 
-format_data()
