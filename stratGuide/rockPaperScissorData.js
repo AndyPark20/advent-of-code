@@ -2516,22 +2516,8 @@ const formatData =()=>{
       joinedStringCharacters += (characters + ',');
     }   
   })
-  console.log(joinedStringCharacters)
   return joinedStringCharacters;
   
 };
-
-// const splitByBlankSpace = data.split("\n");
-// let newWord =''
-// for (let i =0 ;i<splitByBlankSpace.length; i++){
-//   newWord += splitByBlankSpace[i].replace(" ", "");  
-// }
-// let finalWord =""
-// newWord.split("").forEach((values,index)=>{
-  
-//   finalWord += (values + ',')
-
-// })
-
 
 module.exports = formatData();
