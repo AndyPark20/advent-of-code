@@ -1,4 +1,4 @@
-strat_data = `A X
+$strat_data = "A X
   A Z
   A Z
   A X
@@ -2497,9 +2497,18 @@ strat_data = `A X
   C Y
   A X
   C Z
-  A Z`
+  A Z"
 
 
-module Strat_Data
-  
-end
+
+
+  def format_data 
+    new_line_removed_characters = $strat_data.split(" ")
+    space_removed_character = ""
+
+    new_line_removed_characters.each do |characters|
+      space_removed_character += "#{characters},"
+    end
+  end
+
+format_data()
