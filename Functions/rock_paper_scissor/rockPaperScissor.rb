@@ -23,9 +23,10 @@ $final_production_data = {opponent:{action:[], score:0, round_match_result: ""},
 
 # Function to convert json data into formatted object for easier accessability
 def format_data() 
-  split_characters_array =  $strat_guide.split(",")
 
-  # Loop thru the split_character_Array and if the value index is even = opponent, if odd = me
+  split_characters_array =  $strat_guide
+
+  # Loop thru the split_character_Array and if the value index is even = opponent, if odd = me (currently at 4800 characters)
   split_characters_array.each_with_index do |character, index|
     index % 2 == 0 ? $final_production_data[:opponent][:action].push(character) : $final_production_data[:me][:action].push(character)
   end
@@ -55,8 +56,10 @@ def action_comparison()
 end
 
 # Function to calculate match points
+####Perhaps make two methods? for evaulating and calculating match result points
 def calculate_match_points(opponent_action, my_action) 
   #Logic to determine win, loss, or tie
+  #####LOOK INTO HASH LOOKUP!!!!
   if ((opponent_action == 'A' && my_action == 'X') || (opponent_action == 'B' && my_action == 'Y') || (opponent_action == 'C' && my_action == 'Z'))
     $final_production_data[:opponent][:round_match_result] = "tie"
     $final_production_data[:me][:round_match_result] = "tie"
